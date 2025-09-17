@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sporty - Campus Sports Ground Booking</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-running"></i>
+                <span>Sporty</span>
+            </div>
+            <div class="nav-menu">
+                <div id="authSection">
+                    <button id="loginBtn" class="btn btn-primary">
+                        <i class="fab fa-google"></i> Sign In with Google
+                    </button>
+                    <div id="userProfile" class="user-profile" style="display: none;">
+                        <img id="userPhoto" class="user-avatar" alt="User">
+                        <span id="userName"></span>
+                        <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Welcome Section -->
+        <section id="welcomeSection" class="welcome-section">
+            <div class="container">
+                <div class="hero">
+                    <h1>Campus Sports Ground Booking</h1>
+                    <p>Book your favorite sports facilities with ease. Real-time availability, instant confirmation.</p>
+                    <div class="hero-cta">
+                        <button class="cta-button" onclick="document.getElementById('loginBtn').click()">
+                            <i class="fas fa-rocket"></i>
+                            Get Started Now
+                        </button>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>5+ Grounds</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>Real-time Booking</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Secure Access</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Registration Form -->
+        <section id="registrationSection" class="registration-section" style="display: none;">
+            <div class="container">
+                <div class="form-card">
+                    <h2>Complete Your Profile</h2>
+                    <p>Please provide your student details to continue</p>
+                    <form id="registrationForm">
+                        <div class="form-group">
+                            <label for="studentName">Full Name</label>
+                            <input type="text" id="studentName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="rollNo">Roll Number</label>
+                            <input type="text" id="rollNo" required placeholder="e.g., CS2021001">
+                        </div>
+                        <div class="form-group">
+                            <label for="department">Department</label>
+                            <select id="department" required>
+                                <option value="">Select Department</option>
+                                <option value="Computer Science">Computer Science</option>
+                                <option value="Electronics">Electronics</option>
+                                <option value="Mechanical">Mechanical</option>
+                                <option value="Civil">Civil</option>
+                                <option value="Chemical">Chemical</option>
+                                <option value="Biotechnology">Biotechnology</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Physics">Physics</option>
+                                <option value="Chemistry">Chemistry</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fas fa-user-plus"></i> Complete Registration
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Dashboard -->
+        <section id="dashboardSection" class="dashboard-section" style="display: none;">
+            <div class="container">
+                <div class="dashboard-header">
+                    <h2>Sports Ground Booking</h2>
+                    <p>Select a ground, date, and time slot to make your booking</p>
+                </div>
+
+                <!-- Booking Form -->
+                <div class="booking-card interactive-booking">
+                    <div class="booking-header">
+                        <h3><i class="fas fa-calendar-plus"></i> New Booking</h3>
+                        <div class="booking-steps">
+                            <div class="step active" data-step="1">
+                                <span class="step-number">1</span>
+                                <span class="step-label">Ground</span>
+                            </div>
+                            <div class="step" data-step="2">
+                                <span class="step-number">2</span>
+                                <span class="step-label">Date</span>
+                            </div>
+                            <div class="step" data-step="3">
+                                <span class="step-number">3</span>
+                                <span class="step-label">Time</span>
+                            </div>
+                        </div>
+                    </div>
+                    <form id="bookingForm">
+                        <div class="booking-grid">
+                            <div class="form-section" data-section="1">
+                                <div class="form-group enhanced">
+                                    <label for="groundSelect">
+                                        <i class="fas fa-map-marker-alt"></i> Sports Ground
+                                    </label>
+                                    <div class="select-wrapper">
+                                        <select id="groundSelect" required>
+                                            <option value="">Choose your sports ground</option>
+                                        </select>
+                                        <i class="fas fa-chevron-down select-arrow"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-section" data-section="2">
+                                <div class="form-group enhanced">
+                                    <label for="bookingDate">
+                                        <i class="fas fa-calendar-alt"></i> Booking Date
+                                    </label>
+                                    <div class="date-wrapper">
+                                        <input type="date" id="bookingDate" required>
+                                        <i class="fas fa-calendar date-icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-section" data-section="3">
+                                <div class="form-group enhanced">
+                                    <label for="timeSlot">
+                                        <i class="fas fa-clock"></i> Available Time Slots
+                                    </label>
+                                    <div class="slot-container">
+                                        <select id="timeSlot" required disabled>
+                                            <option value="">Select ground and date first</option>
+                                        </select>
+                                        <div id="slotLoader" class="loader" style="display: none;">
+                                            <i class="fas fa-spinner fa-spin"></i> Loading available slots...
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="booking-summary" id="bookingSummary" style="display: none;">
+                            <h4><i class="fas fa-info-circle"></i> Booking Summary</h4>
+                            <div class="summary-details">
+                                <div class="summary-item">
+                                    <span class="label">Ground:</span>
+                                    <span class="value" id="summaryGround">-</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="label">Date:</span>
+                                    <span class="value" id="summaryDate">-</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="label">Time:</span>
+                                    <span class="value" id="summaryTime">-</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-full enhanced-btn" id="bookBtn" disabled>
+                            <i class="fas fa-check"></i> 
+                            <span>Confirm Booking</span>
+                            <div class="btn-ripple"></div>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- My Bookings -->
+                <div class="bookings-card">
+                    <h3><i class="fas fa-list"></i> My Bookings</h3>
+                    <div id="bookingsList">
+                        <div class="loading">
+                            <i class="fas fa-spinner fa-spin"></i> Loading your bookings...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header success">
+                <i class="fas fa-check-circle"></i>
+                <h3 id="successTitle">Booking Confirmed!</h3>
+            </div>
+            <div class="modal-body">
+                <p id="successMessage"></p>
+                <div id="bookingDetails" class="booking-details"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="closeModal('successModal')">Great!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div id="errorModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header error">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>Booking Failed</h3>
+            </div>
+            <div class="modal-body">
+                <p id="errorMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('errorModal')">Try Again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Processing your booking...</p>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+        
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyD7VafpgurS2YvlOHAPDZCa1K7SCm-aACk",
+            authDomain: "sporty-booking-system.firebaseapp.com",
+            projectId: "sporty-booking-system",
+            storageBucket: "sporty-booking-system.firebasestorage.app",
+            messagingSenderId: "341673457121",
+            appId: "1:341673457121:web:31ecb951e87baaf46bcea0",
+            measurementId: "G-4WVB6FEZ6R"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider();
+
+        // Make auth available globally
+        window.firebaseAuth = auth;
+        window.googleProvider = provider;
+        window.signInWithPopup = signInWithPopup;
+        window.signOut = signOut;
+        window.onAuthStateChanged = onAuthStateChanged;
+    </script>
+    
+    <script src="app.js"></script>
+</body>
+</html>

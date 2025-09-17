@@ -1,0 +1,17 @@
+{
+  "name": "sporty-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for Campus Sports Ground Booking System",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server public --port=3000",
+    "build": "echo 'Build completed'",
+    "deploy": "firebase deploy"
+  },
+  "keywords": ["sports", "booking", "firebase", "frontend"],
+  "author": "Campus Sports Team",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
